@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPrefab: {fileID: 6292642783202073995, guid: b035cba0b7e8f5b4d9e7a208ef13639d, type: 3}
-  _spawnInterval: 2
+  _spawnIntervalMultiplier: 0.9
+  _baseSpawnInterval: 2
 --- !u!4 &396473010
 Transform:
   m_ObjectHideFlags: 0
