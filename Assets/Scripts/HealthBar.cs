@@ -44,6 +44,6 @@ public class HealthBar : MonoBehaviour
 
         _healthCount.text = Health.ToString() + "%";//not using StringBuilder becuase it is only 2 things
 
-        _healthBarTransform.localScale = new Vector3(Health/100, 1, 1);
+        _healthBarTransform.localScale = new Vector3(Health/100f, 1, 1);
     }
 }
