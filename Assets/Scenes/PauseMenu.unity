@@ -421,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menuSceneIndex: 0
+  _gameSceneIndex: 1
 --- !u!4 &370384777
 Transform:
   m_ObjectHideFlags: 0
