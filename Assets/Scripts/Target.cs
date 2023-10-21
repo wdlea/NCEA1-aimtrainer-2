@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
 {
     private const float TARGET_SPAWN_RADIUS = 30f;
 
+    [SerializeField] private uint _healthPenalty;
     [SerializeField] private float _speed = 5f;
 
     // Start is called before the first frame update
@@ -39,6 +40,6 @@ public class Target : MonoBehaviour
 
     void DealDamage(){
         Destroy(gameObject);
-        Debug.Log("Reached center, ouch!");
+        HealthBar.Instance.Health -= _healthPenalty;
     }
 }

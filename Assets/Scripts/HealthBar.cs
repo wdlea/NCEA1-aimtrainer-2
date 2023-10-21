@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public HealthBar Instance {get; private set;}
+    public static HealthBar Instance {get; private set;}
 
     [SerializeField] private uint _health;
     public uint Health {
