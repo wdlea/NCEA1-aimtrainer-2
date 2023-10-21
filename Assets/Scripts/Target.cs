@@ -17,7 +17,7 @@ public class Target : MonoBehaviour
         transform.position = GenerateRandomPositionAroundCircle(TARGET_SPAWN_RADIUS);
     }
 
-    public Vector2 GenerateRandomPositionAroundCircle(float radius = 1){
+    public static Vector2 GenerateRandomPositionAroundCircle(float radius = 1){
         float degrees = Random.Range(0, 360);
 
         return new Vector2(Mathf.Sin(degrees), Mathf.Cos(degrees)) * radius;
