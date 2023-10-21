@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     public static HealthBar Instance {get; private set;}
 
-    [SerializeField] private uint _health;
+    [SerializeField][Range(0, 100)]private uint _health;
     public uint Health {
         get => _health;
         set{
