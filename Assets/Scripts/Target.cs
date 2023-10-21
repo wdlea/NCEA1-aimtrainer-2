@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -19,7 +20,10 @@ public class Target : MonoBehaviour
 
         return new Vector2(Mathf.Sin(degrees), Mathf.Cos(degrees)) * radius;
     }
-    // Update is called once per frame
+    
+    void OnMouseDown(){
+        Destroy(gameObject);
+    }
     void Update()
     {
         Vector3 dir = -transform.position.normalized;
