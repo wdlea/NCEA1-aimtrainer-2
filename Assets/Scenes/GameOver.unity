@@ -463,6 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435504540}
+  - component: {fileID: 435504541}
   m_Layer: 0
   m_Name: GameOverManager
   m_TagString: Untagged
@@ -485,6 +486,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435504541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435504539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9938c0ba62870408ecf42b73d8f41b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText:
+    _displayText: {fileID: 369877477}
+    _textPrefix: 'Score: '
+    _textSuffix: 
+  _hitRateText:
+    _displayText: {fileID: 627072166}
+    _textPrefix: 'Hit Rate: '
+    _textSuffix: '%'
+  _timeSurvivedText:
+    _displayText: {fileID: 677160328}
+    _textPrefix: 'Survived: '
+    _textSuffix: s
+  _targetCountText:
+    _displayText: {fileID: 844112156}
+    _textPrefix: 'Targets: '
+    _textSuffix: 
+  _accuracyText:
+    _displayText: {fileID: 1591373158}
+    _textPrefix: 'Accuracy: '
+    _textSuffix: '%'
 --- !u!1 &627072164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1137,7 @@ GameObject:
   - component: {fileID: 1591373159}
   - component: {fileID: 1591373158}
   m_Layer: 5
-  m_Name: HitRate
+  m_Name: Accuracy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1163,7 +1196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Accuracy: 44%'
 --- !u!222 &1591373159
 CanvasRenderer:
   m_ObjectHideFlags: 0
