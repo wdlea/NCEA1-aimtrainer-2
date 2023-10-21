@@ -8,6 +8,7 @@ public class PauseManager : MonoBehaviour
 {
     private const int PAUSE_SCENE_INDEX = 2;
     [SerializeField] private int _menuSceneIndex;
+    [SerializeField] private int _gameSceneIndex;
 
     public static bool IsPaused {get; private set;}
 
@@ -27,6 +28,7 @@ public class PauseManager : MonoBehaviour
     public async void Restart(){
         AsyncOperation op = SceneManager.UnloadSceneAsync(PAUSE_SCENE_INDEX);
         while(!op.isDone) await Task.Yield();
+        SceneManager.LoadScene(_gameSceneIndex);
         Time.timeScale = 1;
         IsPaused = false;
     }
