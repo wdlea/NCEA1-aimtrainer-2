@@ -6,6 +6,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private const float TARGET_SPAWN_RADIUS = 30f;
+    private const float TARGET_OBJECTIVE_RADIUS = 2f;
 
     [SerializeField] private uint _healthPenalty;
     [SerializeField] private float _speed = 5f;
@@ -13,7 +14,7 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = GenerateRandomPositionAroundCircle(30);
+        transform.position = GenerateRandomPositionAroundCircle(TARGET_SPAWN_RADIUS);
     }
 
     public Vector2 GenerateRandomPositionAroundCircle(float radius = 1){
@@ -32,13 +33,13 @@ public class Target : MonoBehaviour
 
         float targetDistance = transform.position.magnitude;
 
-        if(travelDistance >= targetDistance)
-            DealDamage();
+        if(travelDistance >= targetDistance - TARGET_OBJECTIVE_RADIUS)
+            OnHitCentre();
 
         transform.position += dir * travelDistance;
     }
 
-    void DealDamage(){
+    void OnHitCentre(){
         Destroy(gameObject);
         HealthBar.Instance.Health -= _healthPenalty;
     }
