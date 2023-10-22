@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
@@ -37,7 +36,7 @@ public class TargetManager : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if(Input.GetMouseButtonDown(0))
             Statistics.OnShot();
     }
 
