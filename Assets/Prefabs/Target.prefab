@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPenalty: 5
   _renderer: {fileID: 6292642783202073993}
+  _animationPlayer: {fileID: 2670896491189577876}
   _speed: 5
 --- !u!58 &2193861154944089637
 CircleCollider2D:

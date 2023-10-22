@@ -36,10 +36,13 @@ public class TargetManager : MonoBehaviour
     }
 
     Target PoolCreateTarget(){
-        return Instantiate(_flyPrefab);
+        Target t = Instantiate(_flyPrefab);
+        t.OnSpawn();
+        return t;
     }
     void PoolOnGetTarget(Target t){
         t.gameObject.SetActive(true);
+        t.OnSpawn();
     }
     void PoolOnReturnTarget(Target t){
         t.gameObject.SetActive(false);
@@ -48,7 +51,7 @@ public class TargetManager : MonoBehaviour
     public void ReturnTarget(Target t){
         _targetPool.Release(t);
     }
-    
+
     IEnumerator SpawnSwarms(){
         while(true){
             yield return SpawnSwarm();

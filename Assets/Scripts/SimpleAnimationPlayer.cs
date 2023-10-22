@@ -14,6 +14,11 @@ public class SimpleAnimationPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Play();
+    }
+
+    public void Play(){
+        StopAllCoroutines();
         if(frames.Length <= 0)
             Debug.LogWarning("No animation frames available to play, not starting coroutine");
         else StartCoroutine(PlayAnimation());

@@ -6,12 +6,18 @@ public class Target : MonoBehaviour
 
     [SerializeField] private short _healthPenalty;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private SimpleAnimationPlayer _animationPlayer;
     [SerializeField] private float _speed = 5f;
+
+    public void OnSpawn(){
+        _animationPlayer.Play();
+    }
 
     void OnMouseDown(){
         ParticleManager.Instance.SpawnKillParticles(transform.position);
         TargetManager.Instance.ReturnTarget(this);
     }
+
     void Update()
     {
         Vector3 dir = -transform.position.normalized;
