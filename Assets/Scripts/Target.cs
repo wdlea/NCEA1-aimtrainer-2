@@ -28,7 +28,7 @@ public class Target : MonoBehaviour
     }
 
     void OnHitCentre(){
-        Destroy(gameObject);
+        TargetManager.Instance.ReturnTarget(this);
         try{
             checked{
                 HealthBar.Instance.Health -= _healthPenalty;

@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class TargetManager : MonoBehaviour
 {
+    public static TargetManager Instance {get; private set;}
+
     private const float TARGET_SPAWN_RADIUS = 30f;
 
     [SerializeField] Target _flyPrefab;
@@ -19,7 +21,13 @@ public class TargetManager : MonoBehaviour
 
     ObjectPool<Target> _targetPool;
 
-    // Start is called before the first frame update
+    
+    void Awake(){
+        if(Instance != null)
+            Debug.LogWarning("More than 1 targetmanager in scene!");
+        Instance = this;
+    }
+
     void Start()
     {
         _targetPool = new(PoolCreateTarget, PoolOnGetTarget, PoolOnReturnTarget, defaultCapacity: 50);
@@ -36,6 +44,11 @@ public class TargetManager : MonoBehaviour
     void PoolOnReturnTarget(Target t){
         t.gameObject.SetActive(false);
     }
+    
+    public void ReturnTarget(Target t){
+        _targetPool.Release(t);
+    }
+    
     IEnumerator SpawnSwarms(){
         while(true){
             yield return SpawnSwarm();

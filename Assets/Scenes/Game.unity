@@ -162,7 +162,7 @@ MonoBehaviour:
   _swarmMemberTimeOffset:
     BaseValue: 0.1
     Variation: 0.99
-  _swarmDegreesVaraition: 3
+  _swarmDegreesVaraition: 15
 --- !u!4 &396473010
 Transform:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.2668481, g: 0.5660378, b: 0.19045922, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 763417504}
   - component: {fileID: 763417503}
   m_Layer: 0
-  m_Name: centre
+  m_Name: plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
