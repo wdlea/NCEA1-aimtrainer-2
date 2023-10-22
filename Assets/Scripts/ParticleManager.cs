@@ -5,7 +5,7 @@ using UnityEngine.Pool;
 
 public class ParticleManager : MonoBehaviour
 {
-    ManagedParticles _killParticlesPrefab;
+    [SerializeField] ManagedParticles _killParticlesPrefab;
     ObjectPool<ManagedParticles> _killParticlePool;
 
     // Start is called before the first frame update
@@ -22,5 +22,8 @@ public class ParticleManager : MonoBehaviour
         ManagedParticles particles = _killParticlePool.Get();
         particles.transform.position = position;
         particles.Play();
+        particles.OnFinishedPlaying.AddListener(() => {
+            _killParticlePool.Release(particles);
+        });
     }
 }

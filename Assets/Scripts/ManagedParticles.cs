@@ -10,6 +10,8 @@ public class ManagedParticles : MonoBehaviour
     public UnityEvent OnFinishedPlaying;
     float _totalDuration;
     public void Play(){
+        OnFinishedPlaying ??= new();//make sure it is something
+
         _totalDuration = 0f;
         foreach (ParticleSystem system in _systems)
         {
