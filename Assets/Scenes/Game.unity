@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 396473010}
   - component: {fileID: 396473009}
   - component: {fileID: 396473011}
+  - component: {fileID: 396473012}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: GameController
@@ -190,6 +191,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30878648ce1761c4b9ce1584530cf001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &396473012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396473008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe07f1e31da309d45811563d33c49512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killParticlesPrefab: {fileID: 4596069318830755052, guid: 30fcf4551bc9eef42bf22510590f731e, type: 3}
 --- !u!1 &427132834
 GameObject:
   m_ObjectHideFlags: 0

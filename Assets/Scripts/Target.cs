@@ -9,7 +9,8 @@ public class Target : MonoBehaviour
     [SerializeField] private float _speed = 5f;
 
     void OnMouseDown(){
-        Destroy(gameObject);
+        ParticleManager.Instance.SpawnKillParticles(transform.position);
+        TargetManager.Instance.ReturnTarget(this);
     }
     void Update()
     {
