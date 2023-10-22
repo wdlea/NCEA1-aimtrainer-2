@@ -153,9 +153,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f8a2d4981b17645ae6875671bab174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetPrefab: {fileID: 6292642783202073995, guid: b035cba0b7e8f5b4d9e7a208ef13639d, type: 3}
-  _spawnIntervalMultiplier: 0.9
-  _baseSpawnInterval: 2
+  _flyPrefab: {fileID: 6292642783202073995, guid: b035cba0b7e8f5b4d9e7a208ef13639d, type: 3}
+  _swarmSpawnIntervalMultiplier: 0.95
+  _baseSwarmSpawnInterval: 10
+  _swarmMemberCount:
+    BaseValue: 15
+    Variation: 7
+  _swarmMemberTimeOffset:
+    BaseValue: 0.1
+    Variation: 0.99
+  _swarmDegreesVaraition: 3
 --- !u!4 &396473010
 Transform:
   m_ObjectHideFlags: 0
