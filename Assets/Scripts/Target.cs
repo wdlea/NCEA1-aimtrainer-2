@@ -8,7 +8,7 @@ public class Target : MonoBehaviour
     private const float TARGET_SPAWN_RADIUS = 30f;
     private const float TARGET_OBJECTIVE_RADIUS = 2f;
 
-    [SerializeField] private uint _healthPenalty;
+    [SerializeField] private short _healthPenalty;
     [SerializeField] private float _speed = 5f;
 
     // Start is called before the first frame update
@@ -41,6 +41,12 @@ public class Target : MonoBehaviour
 
     void OnHitCentre(){
         Destroy(gameObject);
-        HealthBar.Instance.Health -= _healthPenalty;
+        try{
+            checked{
+                HealthBar.Instance.Health -= _healthPenalty;
+            }
+        }catch{
+            GameOverManager.GameOver();//trigger GameOver because if the short overflows while losing health it must be below 0
+        }
     }
 }

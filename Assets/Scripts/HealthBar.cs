@@ -7,20 +7,22 @@ public class HealthBar : MonoBehaviour
 {
     public static HealthBar Instance {get; private set;}
 
-    [SerializeField][Range(0, 100)]private uint _health;
-    public uint Health {
+    [SerializeField][Range(0, 100)]private short _health;
+    public short Health {
         get => _health;
         set{
             //clamp _health between 0 and 100
             if(value > 100)
                 _health = 100;
-            else if(value < 0)
+            else if(value <= 0){
+                _health = 0;//still display health so it shows after gameover
                 GameOverManager.GameOver();
+            }
             else _health = value;
         }
     }
 
-    [SerializeField] private uint _startingHealth = 100;
+    [SerializeField] private short _startingHealth = 100;
 
     [SerializeField] private Image _healthBar;
     private RectTransform _healthBarTransform;
