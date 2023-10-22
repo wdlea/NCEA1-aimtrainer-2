@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 6292642783202073993}
   - component: {fileID: 6292642783202073995}
   - component: {fileID: 2193861154944089637}
-  - component: {fileID: 4470782549651975902}
-  - component: {fileID: 7814435574472708121}
+  - component: {fileID: 2670896491189577876}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1870146641, guid: 807d4ec94f4dcc4409e93b620e85d182, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -101,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPenalty: 5
-  _animation: {fileID: 0}
   _speed: 5
 --- !u!58 &2193861154944089637
 CircleCollider2D:
@@ -119,7 +117,7 @@ CircleCollider2D:
   m_Offset: {x: -0.12932861, y: -0.5026351}
   serializedVersion: 2
   m_Radius: 1.2839235
---- !u!114 &4470782549651975902
+--- !u!114 &2670896491189577876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,23 +126,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292642783202074006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Script: {fileID: 11500000, guid: a36c26b86f7f3a0478330cde0de57218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 3.4965963e-27
-  m_labelHash: 0.00000040954276
-  m_SpriteKey: 8.4745166e-19
---- !u!114 &7814435574472708121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292642783202074006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: ffe0b3716aa611a4db9192be2dd94a01, type: 3}
+  _renderer: {fileID: 6292642783202073993}
+  _frameDuration: 0.1
+  Playing: 1
+  frames:
+  - {fileID: -799041793, guid: 807d4ec94f4dcc4409e93b620e85d182, type: 3}
+  - {fileID: 1870146641, guid: 807d4ec94f4dcc4409e93b620e85d182, type: 3}

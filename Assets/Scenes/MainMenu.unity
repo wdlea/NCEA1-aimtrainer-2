@@ -262,14 +262,6 @@ PrefabInstance:
       propertyPath: m_labelHash
       value: 0.00000040954276
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
-      objectReference: {fileID: 0}
     - target: {fileID: 6463269587195123377, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_WrapMode
       value: 2
@@ -487,14 +479,6 @@ PrefabInstance:
       propertyPath: m_labelHash
       value: 0.00000040954276
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
 --- !u!4 &650541666 stripped
@@ -513,6 +497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuTarget (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4372836575330160374, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1870146641, guid: 807d4ec94f4dcc4409e93b620e85d182, type: 3}
     - target: {fileID: 4372836575330160375, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -523,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4372836575330160375, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 4372836575330160375, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -561,13 +549,9 @@ PrefabInstance:
       propertyPath: m_labelHash
       value: 0.00000040954276
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
+    - target: {fileID: 8824539284330132629, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
@@ -671,14 +655,6 @@ PrefabInstance:
     - target: {fileID: 6194688083616202145, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_labelHash
       value: 0.00000040954276
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
@@ -933,14 +909,6 @@ PrefabInstance:
     - target: {fileID: 6194688083616202145, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_labelHash
       value: 0.00000040954276
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
@@ -1306,14 +1274,6 @@ PrefabInstance:
     - target: {fileID: 6194688083616202145, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
       propertyPath: m_labelHash
       value: 0.00000040954276
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_labelHash
-      value: 3.991422e-13
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CategoryHash
-      value: 3.4965963e-27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4514680cce3d8674186d0bff65fe60fb, type: 3}
