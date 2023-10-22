@@ -26,13 +26,17 @@ public class GameOverManager : MonoBehaviour
         _accuracyText.DisplayStatistic(Statistics.Accuracy);
     }
 
+    public static void GameOver(){
+        SceneManager.LoadScene(GAME_OVER_SCENE_INDEX, LoadSceneMode.Additive);
+    }
+
     public async void Restart(){
         SceneManager.LoadScene(_gameSceneIndex);
         AsyncOperation op = SceneManager.UnloadSceneAsync(GAME_OVER_SCENE_INDEX);
         while(!op.isDone) await Task.Yield();
         Time.timeScale = 1;
     }
-    
+
     public async void MainMenu(){
         SceneManager.LoadScene(_menuSceneIndex);
         AsyncOperation op = SceneManager.UnloadSceneAsync(GAME_OVER_SCENE_INDEX);
