@@ -11,6 +11,7 @@ public class Pauser : MonoBehaviour
     }
 
     public void DoPause(){
-        PauseManager.Pause();
+        if(!GameOverManager.IsGameOver)
+            PauseManager.Pause();
     }
 }

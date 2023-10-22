@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
+    public static bool IsGameOver {get; private set;}
+
     public const int GAME_OVER_SCENE_INDEX = 3;
     [SerializeField] private int _gameSceneIndex = 1;
     [SerializeField] private int _menuSceneIndex = 0;
@@ -27,6 +29,7 @@ public class GameOverManager : MonoBehaviour
     }
 
     public static void GameOver(){
+        IsGameOver = true;
         SceneManager.LoadScene(GAME_OVER_SCENE_INDEX, LoadSceneMode.Additive);
     }
 
@@ -35,6 +38,7 @@ public class GameOverManager : MonoBehaviour
         AsyncOperation op = SceneManager.UnloadSceneAsync(GAME_OVER_SCENE_INDEX);
         while(!op.isDone) await Task.Yield();
         Time.timeScale = 1;
+        IsGameOver = false;
     }
 
     public async void MainMenu(){
@@ -42,6 +46,7 @@ public class GameOverManager : MonoBehaviour
         AsyncOperation op = SceneManager.UnloadSceneAsync(GAME_OVER_SCENE_INDEX);
         while(!op.isDone) await Task.Yield();
         Time.timeScale = 1;
+        IsGameOver = false;
     }
 }
 
