@@ -13,8 +13,8 @@ public class ParticleManager : MonoBehaviour
     {
         _killParticlePool = new(
             () => Instantiate(_killParticlesPrefab),
-            (ParticleSystem p) => {p.gameObject.SetActive(true);},
-            (ParticleSystem p) => {p.gameObject.SetActive(false);},
+            (ManagedParticles p) => {p.gameObject.SetActive(true);},
+            (ManagedParticles p) => {p.gameObject.SetActive(false);},
             defaultCapacity: 30
         );
     }
