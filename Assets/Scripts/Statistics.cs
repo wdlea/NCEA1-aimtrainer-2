@@ -9,8 +9,8 @@ public static class Statistics
     public static int TargetsHit {get; private set; }
     public static int Misses => ShotsFired - TargetsHit;
     public static int ShotsFired {get; private set;}
-    public static int HitRate => TargetsSpawned > 0 ? (int)(TargetsHit/(float)TargetsSpawned * 100f) : 0;
-    public static int Accuracy => TargetsSpawned > 0 ? (int)(TargetsHit/(float)ShotsFired * 100f) : 0;
+    public static int HitRate => TargetsSpawned > 0 ? (int)((float)TargetsHit/TargetsSpawned * 100f) : 0;
+    public static int Accuracy => ShotsFired > 0 ? (int)((float)TargetsHit/ShotsFired * 100f) : 0;
     public static int SurvivalTime => (int)Time.timeSinceLevelLoad;
 
     public static void OnHitTarget(){
@@ -20,6 +20,7 @@ public static class Statistics
         TargetsSpawned++;
     }
     public static void OnShot(){
+        Debug.Log("pew");
         ShotsFired++;
     }
 }
