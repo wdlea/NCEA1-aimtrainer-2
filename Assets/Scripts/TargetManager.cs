@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
@@ -33,6 +34,11 @@ public class TargetManager : MonoBehaviour
         _targetPool = new(PoolCreateTarget, PoolOnGetTarget, PoolOnReturnTarget, defaultCapacity: 50);
         _currentSpawnInterval = _baseSwarmSpawnInterval;
         StartCoroutine(SpawnSwarms());
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+            Statistics.OnShot();
     }
 
     Target PoolCreateTarget(){
@@ -81,6 +87,7 @@ public class TargetManager : MonoBehaviour
 
             Target fly = _targetPool.Get();
             fly.transform.position = position;
+            Statistics.OnSpawnTarget();
 
             yield return new WaitForSeconds(_swarmMemberTimeOffset.GetValue());
         }

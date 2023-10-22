@@ -16,6 +16,7 @@ public class Target : MonoBehaviour
     void OnMouseDown(){
         ParticleManager.Instance.SpawnKillParticles(transform.position);
         TargetManager.Instance.ReturnTarget(this);
+        Statistics.OnHitTarget();
     }
 
     void Update()
