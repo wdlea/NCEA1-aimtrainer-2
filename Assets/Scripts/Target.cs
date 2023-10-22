@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -9,6 +6,7 @@ public class Target : MonoBehaviour
     private const float TARGET_OBJECTIVE_RADIUS = 2f;
 
     [SerializeField] private short _healthPenalty;
+    [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private float _speed = 5f;
 
     // Start is called before the first frame update
@@ -29,6 +27,9 @@ public class Target : MonoBehaviour
     void Update()
     {
         Vector3 dir = -transform.position.normalized;
+
+        _renderer.flipX = dir.x >= 0;
+
         float travelDistance = _speed * Time.deltaTime;
 
         float targetDistance = transform.position.magnitude;
