@@ -5,10 +5,18 @@ using UnityEngine.Pool;
 
 public class ParticleManager : MonoBehaviour
 {
+    public static ParticleManager Instance {get; private set;}
+
     [SerializeField] ManagedParticles _killParticlesPrefab;
     ObjectPool<ManagedParticles> _killParticlePool;
 
-    // Start is called before the first frame update
+    void Awake(){
+        if(Instance != null)
+            Debug.LogWarning("More than 1 ParticleManager in the scene");
+        Instance = this;
+    }
+
+
     void Start()
     {
         _killParticlePool = new(
