@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ManagedParticles : MonoBehaviour
+public class ManagedEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] _systems;
     [SerializeField] private ManagedAudioClip[] _clips;
@@ -51,6 +51,7 @@ public class ManagedParticles : MonoBehaviour
             if(clip.Delay > progress)
                 yield return new WaitForSeconds(clip.Delay - progress);
             AudioSource.PlayClipAtPoint(clip.Clip, transform.position);
+            Debug.Log("Playing clip");
         }
     }
 }

@@ -48,6 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _systems:
   - {fileID: 1810907715077728045}
+  _clips:
+  - Clip: {fileID: 8300000, guid: c9451b737d31aa1469f942b5737ba59d, type: 3}
+    Delay: 0
   OnFinishedPlaying:
     m_PersistentCalls:
       m_Calls: []

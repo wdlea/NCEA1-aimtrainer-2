@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ParticleManager : MonoBehaviour
+public class EffectManager : MonoBehaviour
 {
-    public static ParticleManager Instance {get; private set;}
+    public static EffectManager Instance {get; private set;}
 
-    [SerializeField] ManagedParticles _killParticlesPrefab;
-    ObjectPool<ManagedParticles> _killParticlePool;
+    [SerializeField] ManagedEffect _killParticlesPrefab;
+    ObjectPool<ManagedEffect> _killParticlePool;
 
     void Awake(){
         if(Instance != null)
@@ -20,18 +20,22 @@ public class ParticleManager : MonoBehaviour
     void Start()
     {
         _killParticlePool = new(
-            () => Instantiate(_killParticlesPrefab),
-            (ManagedParticles p) => {p.gameObject.SetActive(true);},
-            (ManagedParticles p) => {p.gameObject.SetActive(false);},
+            () => {
+                ManagedEffect effect = Instantiate(_killParticlesPrefab);
+                effect.OnFinishedPlaying.AddListener(() => {
+                    _killParticlePool.Release(effect);
+                });
+                return effect;
+            },
+            (ManagedEffect p) => {p.gameObject.SetActive(true);},
+            (ManagedEffect p) => {p.gameObject.SetActive(false);},
             defaultCapacity: 30
         );
     }
     public void SpawnKillParticles(Vector3 position){
-        ManagedParticles particles = _killParticlePool.Get();
-        particles.transform.position = position;
-        particles.Play();
-        particles.OnFinishedPlaying.AddListener(() => {
-            _killParticlePool.Release(particles);
-        });
+        ManagedEffect effect = _killParticlePool.Get();
+        effect.transform.position = position;
+        effect.Play();
+        
     }
 }
