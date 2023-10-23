@@ -1,13 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages the main menu
+/// </summary>
 public class MenuManager : MonoBehaviour
 {
+    /// <summary>
+    /// The index of the game scene for loading.
+    /// </summary>
     [SerializeField] int _gameSceneIndex;
 
+    #region buttonCallbacks
     public void Quit(){
         Application.Quit();
     }
@@ -18,4 +23,5 @@ public class MenuManager : MonoBehaviour
     public void Play(){
         SceneManager.LoadScene(_gameSceneIndex);
     }
+    #endregion
 }
