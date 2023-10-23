@@ -164,6 +164,13 @@ MonoBehaviour:
     BaseValue: 0.1
     Variation: 0.99
   _swarmDegreesVaraition: 15
+  _swatClips:
+  - {fileID: 8300000, guid: c9451b737d31aa1469f942b5737ba59d, type: 3}
+  - {fileID: 8300000, guid: efa66de62f71b5940a42baf39a76d6f1, type: 3}
+  - {fileID: 8300000, guid: ea662b2f373e257498bbdafd8dc75706, type: 3}
+  - {fileID: 8300000, guid: 8d00310c826c775489d3e96ec6b680cf, type: 3}
+  - {fileID: 8300000, guid: 3bd2114256896ff449f2676ad5807638, type: 3}
+  - {fileID: 8300000, guid: bba21e628d88f9945a7ce326c40d4a3f, type: 3}
 --- !u!4 &396473010
 Transform:
   m_ObjectHideFlags: 0

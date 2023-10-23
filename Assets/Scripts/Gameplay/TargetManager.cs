@@ -16,6 +16,10 @@ public class TargetManager : MonoBehaviour
     [SerializeField] VariedValue _swarmMemberCount;
     [SerializeField] VariedValue _swarmMemberTimeOffset;
     [SerializeField] float _swarmDegreesVaraition = 30f;
+
+    Camera _mainCamera;
+
+    [SerializeField] AudioClip[] _swatClips;
    
     float _currentSpawnInterval;
 
@@ -30,14 +34,26 @@ public class TargetManager : MonoBehaviour
 
     void Start()
     {
+        _mainCamera = Camera.main;
+
         _targetPool = new(PoolCreateTarget, PoolOnGetTarget, PoolOnReturnTarget, defaultCapacity: 50);
         _currentSpawnInterval = _baseSwarmSpawnInterval;
         StartCoroutine(SpawnSwarms());
     }
 
     void Update(){
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)){
             Statistics.OnShot();
+
+            Ray cursorRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            Vector3 cursorGamePosition = new Vector3(cursorRay.origin.x, cursorRay.origin.y);//orthogrpahic projection so I can just set Z to the Z I want
+
+            AudioSource.PlayClipAtPoint(
+                _swatClips[Random.Range(0, _swatClips.Length)],
+                cursorGamePosition,
+                10
+            );
+        }  
     }
 
     Target PoolCreateTarget(){

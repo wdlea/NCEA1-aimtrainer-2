@@ -24,13 +24,16 @@ public class ManagedEffect : MonoBehaviour
                 _totalDuration = system.main.duration;
         }
 
-        float _maxAudioDuration = 
-            (from ManagedAudioClip clip in _clips
-            select clip.Delay + clip.Clip.length).Max();
+        if(_clips.Length > 0){
+            float _maxAudioDuration = 
+                (from ManagedAudioClip clip in _clips
+                select clip.Delay + clip.Clip.length).Max();
 
-        _totalDuration = Mathf.Max(_totalDuration, _maxAudioDuration);
+            _totalDuration = Mathf.Max(_totalDuration, _maxAudioDuration);
 
-        StartCoroutine(PlayClips());
+            StartCoroutine(PlayClips());
+        }
+        
         StartCoroutine(TriggerFinished());
     }
     IEnumerator TriggerFinished(){
@@ -38,6 +41,8 @@ public class ManagedEffect : MonoBehaviour
         OnFinishedPlaying.Invoke();
     }
     IEnumerator PlayClips(){
+        if(_clips.Length <= 0) yield break;
+
         float startTime = Time.realtimeSinceStartup;
 
         IEnumerable<ManagedAudioClip> clipOrder =
