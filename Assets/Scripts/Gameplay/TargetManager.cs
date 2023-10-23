@@ -54,6 +54,8 @@ public class TargetManager : MonoBehaviour
                 cursorGamePosition.normalized,
                 100
             );
+
+            EffectManager.Instance.SpawnSwatParticles(cursorGamePosition);
         }  
     }
 

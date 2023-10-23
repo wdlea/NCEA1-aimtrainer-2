@@ -9,6 +9,8 @@ public class EffectManager : MonoBehaviour
 
     [SerializeField] ManagedEffect _killParticlesPrefab;
     ObjectPool<ManagedEffect> _killParticlePool;
+    [SerializeField] ManagedEffect _swatParticlesPrefab;
+    ObjectPool<ManagedEffect> _swatParticlePool;
 
     void Awake(){
         if(Instance != null)
@@ -29,13 +31,31 @@ public class EffectManager : MonoBehaviour
             },
             (ManagedEffect p) => {p.gameObject.SetActive(true);},
             (ManagedEffect p) => {p.gameObject.SetActive(false);},
-            defaultCapacity: 30
+            defaultCapacity: 10
+        );
+
+        _swatParticlePool = new(
+            () => {
+                ManagedEffect effect = Instantiate(_swatParticlesPrefab);
+                effect.OnFinishedPlaying.AddListener(() => {
+                    _swatParticlePool.Release(effect);
+                });
+                return effect;
+            },
+            (ManagedEffect p) => {p.gameObject.SetActive(true);},
+            (ManagedEffect p) => {p.gameObject.SetActive(false);},
+            defaultCapacity: 20
         );
     }
     public void SpawnKillParticles(Vector3 position){
         ManagedEffect effect = _killParticlePool.Get();
         effect.transform.position = position;
         effect.Play();
-        
+    }
+
+    public void SpawnSwatParticles(Vector3 position){
+        ManagedEffect effect = _swatParticlePool.Get();
+        effect.transform.position = position;
+        effect.Play();
     }
 }

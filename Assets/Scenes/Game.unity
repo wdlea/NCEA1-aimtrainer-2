@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _killParticlesPrefab: {fileID: 4596069318830755052, guid: 30fcf4551bc9eef42bf22510590f731e, type: 3}
+  _swatParticlesPrefab: {fileID: 4596069318830755052, guid: d67f5097406212a4b9492c312e90a66e, type: 3}
 --- !u!1 &427132834
 GameObject:
   m_ObjectHideFlags: 0
