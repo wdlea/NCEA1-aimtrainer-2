@@ -420,6 +420,7 @@ MonoBehaviour:
   _UI: {fileID: 1890306665}
   _shakeDurationBase: 1
   _shakeDurationCoeffecient: 0.1
+  _shakeDistanceMultiplier: 0.1
   _shakeUIMultiplier: -10
   _shakeDamping: 0.1
   _shakeClip: 0.05

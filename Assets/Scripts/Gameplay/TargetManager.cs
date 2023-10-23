@@ -48,6 +48,7 @@ public class TargetManager : MonoBehaviour
             Ray cursorRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
             Vector3 cursorGamePosition = new Vector3(cursorRay.origin.x, cursorRay.origin.y);//orthogrpahic projection so I can just set Z to the Z I want
 
+            ScreenShaker.Instance.CurrentShakeIntensity = 1f;
             AudioSource.PlayClipAtPoint(
                 _swatClips[Random.Range(0, _swatClips.Length)],
                 cursorGamePosition,

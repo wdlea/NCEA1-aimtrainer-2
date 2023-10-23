@@ -11,6 +11,7 @@ public class ScreenShaker : MonoBehaviour
 
     [SerializeField] float _shakeDurationBase = 1;
     [SerializeField] float _shakeDurationCoeffecient = 1;
+    [SerializeField] float _shakeDistanceMultiplier = 0.1f;
     [SerializeField] float _shakeUIMultiplier = -1;
     [SerializeField] float _shakeDamping = 0.7f;
     [SerializeField] float _shakeClip = 0.1f;
@@ -48,10 +49,12 @@ public class ScreenShaker : MonoBehaviour
             yield break;
         }
 
+        float shakeDistance = _shakeDistanceMultiplier * CurrentShakeIntensity;
+
         Vector3 startOffset = _mainCamera.transform.position;
         Vector3 finalOffset = new Vector3(
-            Random.Range(-CurrentShakeIntensity, CurrentShakeIntensity),
-            Random.Range(-CurrentShakeIntensity, CurrentShakeIntensity)
+            Random.Range(-shakeDistance, shakeDistance),
+            Random.Range(-shakeDistance, shakeDistance)
         );
 
         float shakeDuration = _shakeDurationCoeffecient * Mathf.Pow(_shakeDurationBase, CurrentShakeIntensity);
