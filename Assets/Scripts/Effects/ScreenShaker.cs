@@ -7,7 +7,7 @@ public class ScreenShaker : MonoBehaviour
     public static ScreenShaker Instance {get; private set;}
 
     [SerializeField] RectTransform _UI;
-    Camera _mainCamera = Camera.main;
+    Camera _mainCamera;
 
     [SerializeField] float _shakeDurationBase = 1;
     [SerializeField] float _shakeDurationCoeffecient = 1;
