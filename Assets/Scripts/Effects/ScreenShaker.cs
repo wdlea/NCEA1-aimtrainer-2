@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScreenShaker : MonoBehaviour
 {
+    public static ScreenShaker Instance {get; private set;}
+
     [SerializeField] RectTransform _UI;
     Camera _mainCamera = Camera.main;
 
@@ -12,6 +14,13 @@ public class ScreenShaker : MonoBehaviour
     [SerializeField] float _shakeUIMultiplier = -1;
     [SerializeField] float _shakeDamping = 0.7f;
     [SerializeField] float _shakeClip = 0.1f;
+
+    void Awake(){
+        if(Instance != null)
+            Debug.LogWarning("More than 1 screen shaker in scene");
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +49,7 @@ public class ScreenShaker : MonoBehaviour
         }
 
         Vector3 startOffset = _mainCamera.transform.position;
-        Vector3 finalOffset = new Vector2(
+        Vector3 finalOffset = new Vector3(
             Random.Range(-CurrentShakeIntensity, CurrentShakeIntensity),
             Random.Range(-CurrentShakeIntensity, CurrentShakeIntensity)
         );
@@ -55,7 +64,7 @@ public class ScreenShaker : MonoBehaviour
         while(currentTime < endTime){
             Vector3 currentOffset = Vector3.Lerp(startOffset, finalOffset, progress);
 
-            _mainCamera.transform.position = currentOffset;
+            _mainCamera.transform.position = currentOffset + (10 * Vector3.back);
             _UI.transform.position = currentOffset * _shakeUIMultiplier;
 
             yield return null;
