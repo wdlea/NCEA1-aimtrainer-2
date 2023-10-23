@@ -51,8 +51,8 @@ public class TargetManager : MonoBehaviour
             ScreenShaker.Instance.CurrentShakeIntensity = 1f;
             AudioSource.PlayClipAtPoint(
                 _swatClips[Random.Range(0, _swatClips.Length)],
-                cursorGamePosition,
-                10
+                cursorGamePosition.normalized,
+                100
             );
         }  
     }
