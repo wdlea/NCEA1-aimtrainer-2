@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The health bar HUD
+/// </summary>
 public class HealthBar : MonoBehaviour
 {
+    /// <summary>
+    /// The currently active instance of the health bar
+    /// </summary>
     public static HealthBar Instance {get; private set;}
 
+    /// <summary>
+    /// The current amount of health that the player has
+    /// </summary>
     [SerializeField][Range(0, 100)]private short _health;
     public short Health {
         get => _health;
@@ -24,18 +31,20 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] private short _startingHealth = 100;
 
+    //the GUI elements
     [SerializeField] private Image _healthBar;
     private RectTransform _healthBarTransform;
     [SerializeField] private Text _healthCount;
 
     void Awake(){
+        //singleton pattern
         if(Instance != null)
-            Debug.LogWarning("More than 1 health bars in scene, there can only be 1!");
-        Instance = this;
-        Health = _startingHealth;
+            Debug.LogWarning("More than 1 health bars in scene, there can only be 1!");//warn user if there is more than 1 instance
+        Instance = this;//regardless of ^ override it
+        Health = _startingHealth;//initialise the health
     }
     void Start(){
-        _healthBarTransform = _healthBar.GetComponent<RectTransform>();
+        _healthBarTransform = _healthBar.GetComponent<RectTransform>();//cache to transform to avoid c++ call
     }
 
     // Update is called once per frame
@@ -46,6 +55,6 @@ public class HealthBar : MonoBehaviour
 
         _healthCount.text = Health.ToString() + "%";//not using StringBuilder becuase it is only 2 things
 
-        _healthBarTransform.localScale = new Vector3(Health/100f, 1, 1);
+        _healthBarTransform.localScale = new Vector3(Health/100f, 1, 1);//set the scale of the inner bar
     }
 }
