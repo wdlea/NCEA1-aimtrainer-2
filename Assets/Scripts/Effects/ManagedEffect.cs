@@ -50,7 +50,7 @@ public class ManagedEffect : MonoBehaviour
 
             if(clip.Delay > progress)
                 yield return new WaitForSeconds(clip.Delay - progress);
-            AudioSource.PlayClipAtPoint(clip.Clip, transform.position);
+            AudioSource.PlayClipAtPoint(clip.Clip, transform.position.normalized, 10);
             Debug.Log("Playing clip");
         }
     }
